@@ -31,7 +31,7 @@ LOW_HOME=/home/"$LOW"
 
 # Setup web app
 {
-	mkdir -p /web/upload /web/static
+	mkdir -p /web/upload /web/static /web/templates
 	python3 /web/app.py
 } >/dev/null 2>/dev/null &
 

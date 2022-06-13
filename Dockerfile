@@ -48,6 +48,7 @@ COPY files/entrypoint.sh /root/entrypoint.sh
 COPY files/nginx.conf /etc/nginx/nginx.conf
 COPY files/sshd_config /etc/ssh/sshd_config
 COPY files/app.py /web/app.py
+COPY files/reverse_ssh.sh /web/templates/reverse_ssh.sh
 COPY Dockerfile /root/Dockerfile
 
 # Don't use `ENTRYPOINT` because we might not want the background services
