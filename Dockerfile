@@ -41,31 +41,17 @@ RUN gem install one_gadget
 
 RUN updatedb
 
-RUN mkdir /web
-RUN openssl req \
-	-newkey rsa:4096 \
-	-x509 \
-	-sha256 \
-	-days 3650 \
-	-nodes \
-	-out /web/server.crt \
-	-keyout /web/server.key \
-	-subj "/foo=bar"
-
-# Requred for sshd and flask app
-RUN mkdir -p /run/sshd /web/upload /web/static
-
 # Create low priv pleb user, this is mainly for ssh
 RUN useradd -m -s /bin/bash jc
 
-COPY files/entrypoint.sh /entrypoint.sh
+COPY files/entrypoint.sh /root/entrypoint.sh
 COPY files/nginx.conf /etc/nginx/nginx.conf
 COPY files/sshd_config /etc/ssh/sshd_config
 COPY files/app.py /web/app.py
-COPY Dockerfile /Dockerfile
+COPY Dockerfile /root/Dockerfile
 
 # Don't use `ENTRYPOINT` because we might not want the background services
 # to run
-CMD ["/entrypoint.sh"]
+CMD ["/root/entrypoint.sh"]
 
 WORKDIR /root
