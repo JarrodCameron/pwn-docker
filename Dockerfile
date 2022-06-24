@@ -11,16 +11,17 @@ RUN dpkg --add-architecture i386 && \
 	apt-get update --fix-missing && \
 	apt-get upgrade -y
 
-# Because of my bad internet, we do this is multiple stages
-RUN apt-get install -y apt-utils ascii bat build-essential cargo cmake cscope
-RUN apt-get install -y curl dnsutils exuberant-ctags fzf gawk gcc gcc-multilib
-RUN apt-get install -y gdb gdb-multiarch git iproute2 jq libc6:i386 libdb-dev
-RUN apt-get install -y libffi-dev libncurses5:i386 libpcre3-dev libssl-dev
-RUN apt-get install -y libstdc++6:i386 libxaw7-dev libxt-dev locate ltrace make
-RUN apt-get install -y man nasm net-tools netcat nginx openssh-server patchelf
-RUN apt-get install -y php procps psmisc python2 python3 python3-dev
-RUN apt-get install -y python3-pip ripgrep rubygems strace tmux valgrind vim
-RUN apt-get install -y virtualenvwrapper wget
+RUN apt-get install -y apt-utils ascii awscli bat build-essential cargo cmake \
+	cscope curl dnsutils exuberant-ctags fzf gawk gcc gcc-multilib gdb \
+	gdb-multiarch git iproute2 jq libc6:i386 libdb-dev libffi-dev \
+	libncurses5:i386 libpcre3-dev libssl-dev libstdc++6:i386 libxaw7-dev \
+	libxt-dev locate ltrace make man nasm net-tools netcat nginx \
+	openssh-server patchelf php procps psmisc python2 python3 python3-dev \
+	python3-pip qemu-system ripgrep rubygems strace tmux valgrind vim \
+	virtualenvwrapper wget
+
+# Symlink because `bat` is installed as `batcat`
+RUN ln -s /usr/bin/batcat /usr/local/sbin/bat
 
 RUN git clone https://github.com/JarrodCameron/.dotfiles /root/.dotfiles \
 	&& cd /root/.dotfiles \
@@ -49,6 +50,8 @@ COPY files/nginx.conf /etc/nginx/nginx.conf
 COPY files/sshd_config /etc/ssh/sshd_config
 COPY files/app.py /web/app.py
 COPY files/reverse_ssh.sh /web/templates/reverse_ssh.sh
+COPY files/intel_isa_first.pdf /root/docs/intel_isa_first.pdf
+COPY files/intel_isa_second.pdf /root/docs/intel_isa_second.pdf
 COPY Dockerfile /root/Dockerfile
 
 # Don't use `ENTRYPOINT` because we might not want the background services
