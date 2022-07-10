@@ -8,3 +8,8 @@
 - [x] Generate certs for server should be in `entrypoint.sh`
 - [x] Add endpoint to generate file to reverse ssh
 - [ ] Add more info to README
+- [ ] Uploading a file can be done by specifying the name
+- [ ] GET request to upload enpoint should return web page
+- [ ] Periodic build/deploy if not commits for X days
+- [ ] Increase max size of file uploads allowed by nginx
+
