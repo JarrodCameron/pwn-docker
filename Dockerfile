@@ -15,7 +15,7 @@ RUN apt-get install -y apt-utils ascii awscli bat build-essential cargo cmake \
 	cscope curl dnsutils exuberant-ctags fzf gawk gcc gcc-multilib gdb \
 	gdb-multiarch git iproute2 jq libc6:i386 libdb-dev libffi-dev \
 	libncurses5:i386 libpcre3-dev libssl-dev libstdc++6:i386 libxaw7-dev \
-	libxt-dev locate ltrace make man nasm net-tools netcat nginx \
+	libxt-dev locate ltrace make man maven nasm net-tools netcat nginx \
 	openssh-server patchelf php procps psmisc python2 python3 python3-dev \
 	python3-pip qemu-system ripgrep rubygems strace tmux valgrind vim \
 	virtualenvwrapper wget
