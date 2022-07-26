@@ -15,5 +15,5 @@
 - [x] Install proxychains and pahole
 - [ ] Randomly generate password for "jc" + save password to disk
 - [ ] Enable SSH password authentication
-- [ ] Install the Azure Cli
+- [x] Install the Azure Cli
 
