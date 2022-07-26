@@ -12,7 +12,7 @@
 - [ ] GET request to upload enpoint should return web page
 - [ ] Periodic build/deploy if not commits for X days
 - [ ] Increase max size of file uploads allowed by nginx
-- [ ] Install proxychains and pahole
+- [x] Install proxychains and pahole
 - [ ] Randomly generate password for "jc" + save password to disk
 - [ ] Enable SSH password authentication
 - [ ] Install the Azure Cli
