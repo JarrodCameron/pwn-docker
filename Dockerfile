@@ -27,8 +27,8 @@ RUN git clone https://github.com/JarrodCameron/.dotfiles /root/.dotfiles \
 	&& cd /root/.dotfiles \
 	&& ./restore.sh --force
 
-RUN python3 -m pip install --upgrade pwntools capstone filebytes flask \
-	keystone-engine ropper pyvex z3-solver
+RUN python3 -m pip install --upgrade azure-cli pwntools capstone filebytes \
+        flask keystone-engine ropper pyvex z3-solver
 
 RUN git clone https://github.com/radare/radare2 ~/tools/radare2 \
 	&& cd ~/tools/radare2/ \
