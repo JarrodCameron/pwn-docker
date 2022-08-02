@@ -16,4 +16,6 @@
 - [ ] Increase max size of file uploads allowed by nginx
 - [ ] Randomly generate password for "jc" + save password to disk
 - [ ] Enable SSH password authentication
+- [ ] Scheduled updated should be at 3am (not lunch)
+- [ ] Use ssh `-o` option so that the reverse ssh-shell doesn't need prompt
 
