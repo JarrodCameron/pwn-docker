@@ -18,4 +18,4 @@
 - [ ] Randomly generate password for "jc" + save password to disk
 - [ ] Enable SSH password authentication
 - [ ] Scheduled updated should be at 3am (not lunch)
-
+- [ ] Low priv user should be in chroot jail (or some other sandbox)
