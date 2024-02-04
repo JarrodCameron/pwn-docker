@@ -11,9 +11,7 @@ services:
   kali:
     container_name: pwn
     restart: always
-    build:
-      context: .
-      dockerfile: kali/Dockerfile
+    build: .
     ports:
       - '80:80'
       - '443:443'
