@@ -1,0 +1,26 @@
+###############################################################################
+# If you're using linux:                                                      #
+#   - Set `environment` to `DISPLAY` (will inherit the DISPLAY from the host) #
+#   - Add to `volumes` to `~/.Xauthority:/root/.Xauthority` (for GUIs)        #
+###############################################################################
+
+version: '3.8'
+
+services:
+
+  kali:
+    container_name: pwn
+    restart: always
+    build:
+      context: .
+      dockerfile: kali/Dockerfile
+    ports:
+      - '80:80'
+      - '443:443'
+      - '8080:8080'
+      - '8443:8443'
+    volumes:
+      - ./app/:/web/app
+      - ./frontend/:/web/frontend
+      #- ./files/nginx/:/etc/nginx/conf.d/
+      - .:/shared

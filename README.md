@@ -1,23 +1,31 @@
-# pwn-docker
+# Pwn Docker 2
 
-### TODO
+## Bucket List
 
-- [ ] Add more info to README
-- [ ] Uploading a file can be done by specifying the name
-- [ ] GET request to upload enpoint should return web page
-- [ ] Increase max size of file uploads allowed by nginx
-- [ ] Randomly generate password for "jc" + save password to disk
-- [ ] Enable SSH password authentication
-- [ ] Scheduled updated should be at 3am (not lunch)
-- [ ] GET:/revssh endpoint should print copy/pasteable ssh command
-
-- [x] Add to GitHub
-- [x] Generate ssh keys for `jc` user on startup
-- [x] Use GitHub actions to update images on event (e.g. push, dispatch)
-- [x] Generate certs for server should be in `entrypoint.sh`
-- [x] Add endpoint to generate file to reverse ssh
-- [x] Re-generate sigb/pwn every 24 hours
-- [x] Install proxychains and pahole
-- [x] Install the Azure Cli
-- [x] Use ssh `-o` option so that the reverse ssh-shell doesn't need prompt
-- [x] Low priv user should be in chroot jail (or some other sandbox)
+- [ ] Responder to listen for events
+- [ ] Wireshark
+  - [ ] Listen for events
+  - [ ] Use web app to download logs
+- [ ] SMB server needs to support uploads/downloads
+- [ ] Generate SSH keys during startup
+- [ ] Remove flask app
+  - [ ] Supervisord
+  - [ ] app-bak
+- [ ] `COPY` into container duing `docker-build`
+  - [ ] `frontent/`
+  - [ ] `app/`
+- [ ] Implement Task Manager
+  - [ ] Show CPU Usage
+  - [ ] Show Memory Usage
+  - [ ] Show Nginx Logs
+  - [ ] Show SSH Logs
+- [ ] Static files should be delet-able from frontend
+- [ ] Dashboard supports card highlights on cursor hover
+- [ ] Advanced DNS lookup
+  - [ ] support most (all?) request types
+  - [ ] Specify name server
+- [ ] Request Bin
+  - [ ] Print request, headers, body
+  - [ ] Custom responses (based on method + path)
+- [ ] 404 Support
+- [ ] Require authentication
