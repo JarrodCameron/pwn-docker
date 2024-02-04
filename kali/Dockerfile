@@ -11,37 +11,20 @@ RUN apt-get update --fix-missing
 RUN apt-get upgrade -y
 
 # Smaller downloads to prevent mysterous 404 errors.
-#RUN apt install -y --no-install-recommends apt-utils ascii awscli bat
-#RUN apt install -y --no-install-recommends build-essential cargo cifs-utils
-#RUN apt install -y --no-install-recommends cmake cscope curl dnsutils dos2unix
-#RUN apt install -y --no-install-recommends entr exuberant-ctags fzf gawk gcc
-#RUN apt install -y --no-install-recommends gcc-multilib gdb gdb-multiarch git
-#RUN apt install -y --no-install-recommends htop iproute2 jq libc6:i386
-#RUN apt install -y --no-install-recommends libdb-dev libffi-dev libpcre3-dev
-#RUN apt install -y --no-install-recommends libssl-dev libstdc++6:i386
-#RUN apt install -y --no-install-recommends libxaw7-dev libxt-dev locate ltrace
-#RUN apt install -y --no-install-recommends make man man-db maven
-#RUN apt install -y --no-install-recommends metasploit-framework nasm net-tools
-#RUN apt install -y --no-install-recommends netcat-openbsd nginx nmap
-#RUN apt install -y --no-install-recommends openssh-server pahole patchelf php
-#RUN apt install -y --no-install-recommends plocate powershell procps
-#RUN apt install -y --no-install-recommends proxychains psmisc python3
-#RUN apt install -y --no-install-recommends python3-dev python3-pip
-#RUN apt install -y --no-install-recommends python3-virtualenv radare2 ripgrep
-#RUN apt install -y --no-install-recommends rlwrap rubygems samba smbclient
-#RUN apt install -y --no-install-recommends strace supervisor tmux valgrind vim
-#RUN apt install -y --no-install-recommends virtualenvwrapper wget xdotool
-
 RUN apt install -y --no-install-recommends apt-utils ascii awscli bat \
 	build-essential cargo cifs-utils cmake cscope curl dnsutils dos2unix entr \
-	exuberant-ctags fzf gawk gcc gcc-multilib gdb gdb-multiarch git htop \
-	iproute2 jq libc6:i386 libdb-dev libffi-dev libpcre3-dev libssl-dev \
-	libstdc++6:i386 libxaw7-dev libxt-dev locate ltrace make man man-db maven \
-	metasploit-framework nasm net-tools netcat-openbsd nginx nmap \
+	exuberant-ctags fzf gawk gcc gcc-multilib gdb gdb-multiarch git htop
+
+RUN apt install -y --no-install-recommends iproute2 jq libc6:i386 libdb-dev \
+	libffi-dev libpcre3-dev libssl-dev libstdc++6:i386 libxaw7-dev libxt-dev \
+	locate ltrace make man man-db maven metasploit-framework nasm net-tools
+
+RUN apt install -y --no-install-recommends netcat-openbsd nginx nmap \
 	openssh-server pahole patchelf php plocate powershell procps proxychains \
-	psmisc python3 python3-dev python3-pip python3-virtualenv radare2 ripgrep \
-	rlwrap rubygems samba smbclient strace supervisor tmux valgrind vim \
-	virtualenvwrapper wget xdotool
+	psmisc python3 python3-dev python3-pip python3-virtualenv radare2 ripgrep
+
+RUN apt install -y --no-install-recommends rlwrap rubygems samba smbclient \
+	strace supervisor tmux valgrind vim virtualenvwrapper wget xdotool
 
 # Do this last because it's so fucking big
 RUN apt install -y --no-install-recommends npm
@@ -109,6 +92,8 @@ RUN updatedb
 COPY kali/smb.conf /etc/samba/smb.conf
 COPY kali/supervisord.conf /etc/supervisor/conf.d/
 COPY files/nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
+COPY app/ /web/app
+COPY frontend/ /web/frontend
 
 ###################################
 # PYTHON DEPENDANCIES FOR WEB APP #

@@ -22,5 +22,4 @@ services:
     volumes:
       - ./app/:/web/app
       - ./frontend/:/web/frontend
-      #- ./files/nginx/:/etc/nginx/conf.d/
       - .:/shared
