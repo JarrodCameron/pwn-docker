@@ -124,9 +124,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/' # Base of URLs returned to the frontend
 STATIC_ROOT = '/static/' # The root directory of the static folder
 
-SSH_USER = 'kali'
-SSH_PUBLIC_KEY_FILE = '/home/kali/.ssh/id_rsa.pub'
-SSH_PRIVATE_KEY_FILE = '/home/kali/.ssh/id_rsa'
+SSH_USER = os.getenv('LOW_USER', 'conk')
+SSH_PUBLIC_KEY_FILE = f'/home/{SSH_USER}/.ssh/id_rsa.pub'
+SSH_PRIVATE_KEY_FILE = f'/home/{SSH_USER}/.ssh/id_rsa'
 
 SSH_MIN_PORT = '10000'
 SSH_MAX_PORT = '10099'

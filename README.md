@@ -1,19 +1,13 @@
 # Pwn Docker 2
 
+docker run -p 80:80 -ti sigb/pwn
+
 ## Bucket List
 
-- [ ] Responder to listen for events
 - [ ] Wireshark
   - [ ] Listen for events
   - [ ] Use web app to download logs
 - [ ] SMB server needs to support uploads/downloads
-- [ ] Generate SSH keys during startup
-- [ ] Remove flask app
-  - [ ] Supervisord
-  - [ ] app-bak
-- [ ] `COPY` into container duing `docker-build`
-  - [ ] `frontent/`
-  - [ ] `app/`
 - [ ] Implement Task Manager
   - [ ] Show CPU Usage
   - [ ] Show Memory Usage
