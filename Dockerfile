@@ -15,10 +15,10 @@ RUN apk update
 RUN apk upgrade
 
 # Install `docs` to install the man pages
-RUN apk add aws-cli bash bat curl docs entr fzf git htop iproute2 jq man-db \
-	man-pages net-tools netcat-openbsd nginx nmap npm openssh openssh-server \
-	openssl plocate py3-impacket py3-pip py3-virtualenv python3 ripgrep \
-	rlwrap samba strace supervisor tmux vim wget
+RUN apk add aws-cli bash bat curl docs entr file fzf git htop iproute2 jq \
+	man-db man-pages net-tools netcat-openbsd nginx nmap npm openssh \
+	openssh-server openssl plocate py3-impacket py3-pip py3-virtualenv \
+	python3 ripgrep rlwrap samba strace supervisor tmux vim wget
 
 RUN apk add responder@testing
 
