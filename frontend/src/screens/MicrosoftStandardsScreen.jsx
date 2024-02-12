@@ -32,6 +32,7 @@ function MicrosoftStandardsScreen() {
 
     const [standards, setStandards] = useState([]);
     const [query, setQuery] = useState('');
+    const [isValid, setIsValid] = useState(true);
 
     useEffect(() => {
         axios.get("/api/microsoft-standards/").then(response => {
@@ -40,6 +41,20 @@ function MicrosoftStandardsScreen() {
             setStandards(orderedStandards);
         });
     }, []);
+
+    const handleOnChange = e => {
+        const newQuery = e.target.value;
+
+        try {
+            // Will throw exception if invalid regex
+            RegExp(newQuery, "i");
+
+            setQuery(newQuery);
+            setIsValid(true);
+        } catch {
+            setIsValid(false);
+        }
+    }
 
     return (
         <>
@@ -54,8 +69,12 @@ function MicrosoftStandardsScreen() {
                             <Form.Control
                                 placeholder="NTLM, Kerberos, Active Directory, ..."
                                 aria-label="Search"
-                                onChange={e => setQuery(e.target.value)}
+                                onChange={handleOnChange}
+                                isInvalid={!isValid}
                             />
+                            <Form.Control.Feedback type="invalid">
+                                Invalid regular expression!
+                            </Form.Control.Feedback>
                         </InputGroup>
                     </Col>
                 </Row>
@@ -63,7 +82,9 @@ function MicrosoftStandardsScreen() {
 
                 <ListGroup>
                     {standards.map((entry, index) => (
-                        isRegexMatch(query, entry['title']) && <ListGroup.Item key={index} action>
+                        isRegexMatch(query, entry['title']) && <ListGroup.Item
+                            key={index} action
+                        >
                             {entry.title}
                             <Link
                                 target="_blank"

@@ -40,7 +40,7 @@ class MicrosoftStandardsView(View):
             href = data['href']
             title = data['toc_title']
 
-            if re.match(r'^\[[A-Z-]*\]: ', title):
+            if re.match(r'^\[[A-Z0-9-]*\]: ', title):
                 standards_list.append({
                     'title': title,
                     'href': url + '/../' + href,
