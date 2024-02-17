@@ -39,7 +39,9 @@ function ReverseSshScreen() {
 
                             <InputGroup className="mb-3">
 
-                                <InputGroup.Text>Host</InputGroup.Text>
+                                <InputGroup.Text>
+                                    SSH Server Host
+                                </InputGroup.Text>
                                 <Form.Control
                                     placeholder="1.2.3.4"
                                     defaultValue={host}
@@ -49,7 +51,9 @@ function ReverseSshScreen() {
                             </InputGroup>
 
                             <InputGroup className="mb-3">
-                                <InputGroup.Text>Port</InputGroup.Text>
+                                <InputGroup.Text>
+                                    SSH Server Port
+                                </InputGroup.Text>
                                 <Form.Control
                                     placeholder="1234"
                                     onChange={e => setPort(e.target.value)}

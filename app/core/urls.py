@@ -17,4 +17,10 @@ urlpatterns = [
         views.MicrosoftStandardsView.as_view(),
         name='microsoft-standards'
     ),
+
+    path(
+        'rfc-list/',
+        views.RfcListView.as_view(),
+        name='rfc-list'
+    ),
 ]

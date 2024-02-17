@@ -22,8 +22,8 @@ class AxiosClient {
         return this.client.post(url, data, config);
     }
 
-    async get(url, data={}, config={}) {
-        return this.client.get(url, data, config);
+    async get(url, config={}) {
+        return this.client.get(url, config);
     }
 
     async request(config) {

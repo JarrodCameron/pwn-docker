@@ -14,6 +14,7 @@ import DashboardScreen from './screens/DashboardScreen';
 import UploadScreen from './screens/UploadScreen';
 import ReverseSshScreen from './screens/ReverseSshScreen';
 import MicrosoftStandardsScreen from './screens/MicrosoftStandardsScreen';
+import RfcListScreen from './screens/RfcListScreen';
 
 import { SUN_ICON } from './utils/Icons.jsx';
 
@@ -48,6 +49,11 @@ function App() {
                 <Routes>
                     <Route path="/" element={<DashboardScreen />} exact />
                     <Route path="/upload" element={<UploadScreen />} exact />
+                    <Route
+                        path="/rfc-list"
+                        element={<RfcListScreen />}
+                        exact
+                    />
 
                     <Route
                         path="/reverse-ssh"

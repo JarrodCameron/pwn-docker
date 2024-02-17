@@ -26,11 +26,12 @@ const DashboardCard = ({text, to, newTab}) => {
 }
 
 const links = [
+/*  Name                    Link                                 New tab     */
     ["Microsoft Standards", "/microsoft-standards",              false],
+    ["IETF RFC List",       "/rfc-list",                         false],
     ["Upload",              "/upload",                           false],
     ["Reverse SSH Shell",   "/reverse-ssh",                      false],
     ["Static Files",        "/static",                           true],
-    ["Task Manager",        "/task-manager",                     false],
     ["CyberChef",           "https://gchq.github.io/CyberChef/", true],
     ["RevShells",           "https://www.revshells.com/",        true],
     ["gitignore",           "https://gitignore.io/",             true],

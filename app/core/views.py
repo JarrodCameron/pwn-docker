@@ -1,3 +1,4 @@
+import json
 import re
 import requests
 
@@ -106,3 +107,26 @@ class ReverseSshView(TemplateView):
         context['max_port'] = settings.SSH_MAX_PORT
 
         return context
+
+#for offset in '0' '1000' '2000' '3000' '4000' '5000' '6000' '7000' '8000' '9000'
+#do
+#   curl "https://datatracker.ietf.org/api/v1/doc/document/?states__slug=published&format=json&limit=1000&offset=$offset"
+#   sleep 5
+#done | tee output.json
+##jq '.objects[] | [[.rfc_number, .title]]' | jq -s 'add'
+class RfcListView(View):
+
+    def get(self, *args, **kwargs):
+
+        # TODO don't hard code this
+        with open('rfc-list.json', 'r') as f:
+            data = json.load(f)
+            fn = lambda x: {'id': x[0], 'name': x[1]}
+            rfc_list = list(map(fn, data))
+
+        rfc_list = sorted(rfc_list, key=lambda x: x['id'])
+
+        return JsonResponse({
+            'data': rfc_list
+        })
+

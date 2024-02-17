@@ -6,14 +6,20 @@
 # Exit on non-zero return status
 set -e
 
-[ -z "${LOW_USER}" ] && export LOW_USER='conk2'
+[ -z "${LOW_USER}" ] && export LOW_USER='conk'
 
 ############################## SSH SERVER SETUP ##############################
 # SSH for $LOW_USER
 mkdir -p "/home/${LOW_USER}/.ssh"
-ssh-keygen -f "/home/${LOW_USER}/.ssh/id_rsa" -N ''
-cp "/home/${LOW_USER}/.ssh/id_rsa.pub" "/home/${LOW_USER}/.ssh/authorized_keys"
-chown -R "${LOW_USER}:${LOW_USER}" "/home/${LOW_USER}/.ssh"
+if [ ! -e "/home/${LOW_USER}/.ssh/id_rsa" ]; then
+	ssh-keygen -f "/home/${LOW_USER}/.ssh/id_rsa" -N ''
+
+	cp \
+		"/home/${LOW_USER}/.ssh/id_rsa.pub" \
+		"/home/${LOW_USER}/.ssh/authorized_keys"
+
+	chown -R "${LOW_USER}:${LOW_USER}" "/home/${LOW_USER}/.ssh"
+fi
 
 # Generate host keys
 ssh-keygen -A
